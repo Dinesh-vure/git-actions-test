@@ -1,8 +1,16 @@
+terraform {
+  backend "s3" {
+    bucket  = "dinesh-terraform-state-557649278937"
+    key     = "terraform.tfstate"
+    region  = "us-east-1"
+    encrypt = true
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
 
-# Get the latest Amazon Linux 2023 AMI
 data "aws_ami" "latest" {
   most_recent = true
 
@@ -14,7 +22,6 @@ data "aws_ami" "latest" {
   }
 }
 
-# Create EC2 instance
 resource "aws_instance" "dev" {
   ami           = data.aws_ami.latest.id
   instance_type = "t2.micro"
