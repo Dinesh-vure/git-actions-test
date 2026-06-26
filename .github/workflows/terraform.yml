@@ -11,8 +11,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v3
+- name: Terraform Init
+  run: terraform init
 
-      - name: Check Terraform Version
-        run: terraform version
+- name: Terraform Validate
+  run: terraform validate
