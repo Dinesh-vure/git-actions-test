@@ -1,0 +1,7 @@
+aws_region   = "us-east-1"
+project_name = "aws-terraform"
+vpc_cidr     = "10.0.0.0/16"
+key_name     = "aws-terraform-key"
+db_username  = "admin"
+db_password  = "MyStrongPass123!"
+db_name      = "appdb"
