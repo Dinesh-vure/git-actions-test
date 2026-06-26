@@ -11,8 +11,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Show Current Folder
-        run: pwd
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
 
-      - name: Show Files
-        run: ls -la
+      - name: Check Terraform Version
+        run: terraform version
