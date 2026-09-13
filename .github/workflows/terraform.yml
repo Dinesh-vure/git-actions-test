@@ -3,6 +3,17 @@ name: Terraform CI/CD
 on:
   workflow_dispatch:
     inputs:
+
+      environment:
+        description: "Select environment"
+        required: true
+        default: dev
+        type: choice
+        options:
+          - dev
+          - qa
+          - production
+
       action:
         description: "Select Terraform action"
         required: true
@@ -19,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: production
+      name: ${{ inputs.environment }}
 
     steps:
 
